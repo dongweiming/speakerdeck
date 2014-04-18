@@ -1,0 +1,55 @@
+#!/usr/bin/expect
+#使用expect登陆服务器脚本
+#dongweiming 2013.04.02
+trap {
+ set rows [stty rows]
+ set cols [stty columns]
+ stty rows $rows columns $cols < $spawn_out(slave,name)
+} WINCH
+
+set timeout 5
+set server [lindex $argv 0]
+set port [lindex $argv 1]
+set password [lindex $argv 2]
+set tbjpass xxx
+
+if {$port==""} {
+    set port 58404
+}
+
+if {$argc>3} {
+    puts stderr "参数错误,请使用以下格式: $argv0 [服务器简称,比如8 ] [端口]"
+    exit 1
+}
+
+if {$server=="100"} {
+    spawn ssh -p 58404 123.126.84.200
+    expect "password:"
+    send "$tbjpass\n"
+    interact
+} elseif {[regexp {^s} $server found]} {
+    spawn ssh -p 58404 123.126.84.200
+    expect "password:"
+    send "$tbjpass\n"
+    expect "~"
+    send "ssh $server\n"
+    expect "password:"
+    send "xxx\n"
+    interact
+} elseif {[regexp {^c} $server found]} {
+    spawn ssh -p 58404 123.126.84.200
+    expect "password:"
+    send "$tbjpass\n"
+    expect "~"
+    send "ssh operation@$server\n"
+    #spawn ssh -p 58404 operation@$server
+    expect "password:"
+    send "xxx\n"
+    expect "~"
+    send "source qq_env/bin/activate\n"
+    send "cd Social_Tencent_Crawler\n"
+    interact
+} else {
+    spawn ssh -p $port dongwm@$server
+    interact
+}

@@ -1,0 +1,139 @@
+$http -a github账号/github密码 https://api.github.com
+HTTP/1.1 200 OK
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Cache-Control: private, max-age=60, s-maxage=60
+Content-Encoding: gzip
+Content-Security-Policy: default-src 'none'
+Content-Type: application/json; charset=utf-8
+Date: Wed, 16 Apr 2014 16:21:31 GMT
+ETag: "89fb5ede6d99c9987f9856e31909519a"
+Server: GitHub.com
+Status: 200 OK
+Strict-Transport-Security: max-age=31536000
+Transfer-Encoding: chunked
+Vary: Accept, Authorization, Cookie, X-GitHub-OTP
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-GitHub-Media-Type: github.v3
+X-GitHub-Request-Id: 7D27140C:2123:330711:534EAE0A
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4996
+X-RateLimit-Reset: 1397667916
+X-Served-By: c046d59f93ede9ab52d5ac29f1ed70f7
+X-XSS-Protection: 1; mode=block
+
+{
+    "authorizations_url": "https://api.github.com/authorizations",
+    "code_search_url": "https://api.github.com/search/code?q={query}{&page,per_page,sort,order}",
+    "current_user_repositories_url": "https://api.github.com/user/repos{?type,page,per_page,sort}",
+    "current_user_url": "https://api.github.com/user",
+    "emails_url": "https://api.github.com/user/emails",
+    "emojis_url": "https://api.github.com/emojis",
+    "events_url": "https://api.github.com/events",
+    "feeds_url": "https://api.github.com/feeds",
+    "following_url": "https://api.github.com/user/following{/target}",
+    "gists_url": "https://api.github.com/gists{/gist_id}",
+    "hub_url": "https://api.github.com/hub",
+    "issue_search_url": "https://api.github.com/search/issues?q={query}{&page,per_page,sort,order}",
+    "issues_url": "https://api.github.com/issues",
+    "keys_url": "https://api.github.com/user/keys",
+    "notifications_url": "https://api.github.com/notifications",
+    "organization_repositories_url": "https://api.github.com/orgs/{org}/repos/{?type,page,per_page,sort}",
+    "organization_url": "https://api.github.com/orgs/{org}",
+    "public_gists_url": "https://api.github.com/gists/public",
+    "rate_limit_url": "https://api.github.com/rate_limit",
+	"repository_search_url": "https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}",
+	    "repository_url": "https://api.github.com/repos/{owner}/{repo}",
+	    "starred_gists_url": "https://api.github.com/gists/starred",
+	    "starred_url": "https://api.github.com/user/starred{/owner}{/repo}",
+	    "team_url": "https://api.github.com/teams",
+	    "user_organizations_url": "https://api.github.com/user/orgs",
+	    "user_repositories_url": "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}",
+	    "user_search_url": "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}",
+	    "user_url": "https://api.github.com/users/{user}"
+	}
+
+$http -a 微博账号:微博密码 https://api.weibo.com
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 382
+Content-Type: text/html;charset=UTF-8
+Date: Wed, 16 Apr 2014 16:21:40 GMT
+Server: nginx/1.2.0
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Weibo API</title>
+    </head>
+    <body>
+<script type="text/javascript">
+<!--
+window.location = "http://open.weibo.com/"
+//-->
+</script>
+    </body>
+</html>
+
+$http -a 微博账号:微博密码 http://open.t.qq.com/api/friends/fanslist
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Length: 218
+Content-Type: application/x-javascript; charset=utf-8
+Date: Wed, 16 Apr 2014 16:22:18 GMT
+Server: nginx/0.8.51
+
+{"data":null,"detailerrinfo":{"accesstoken":"","apiname":"weibo.friends.fanslist","appkey":"","clientip":"59.109.104.164","cmd":0,"proctime":0,"ret1":3,"ret2":3,"ret3":102,"ret4":2753660170,"timestamp":1397665339},"errcode":102,"msg":"missing parameter","ret":3,"seqid":6002926921768504269}
+
+$http -a 微博账号:微博密码 https://api.weibo.com/2/statuses/public_timeline.json
+HTTP/1.1 400 Bad Request
+Api-Server-IP: 10.75.5.90
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json;charset=UTF-8
+Date: Wed, 16 Apr 2014 16:22:29 GMT
+Server: nginx/1.2.0
+Transfer-Encoding: chunked
+Vary: Accept-Encoding
+
+{
+    "error": "source paramter(appkey) is missing",
+    "error_code": 10006,
+    "request": "/2/statuses/public_timeline.json"
+}
+
+$http -a noesistsname:xxx https://api.github.com
+HTTP/1.1 401 Unauthorized
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Content-Length: 83
+Content-Security-Policy: default-src 'none'
+Content-Type: application/json; charset=utf-8
+Date: Wed, 16 Apr 2014 16:22:48 GMT
+Server: GitHub.com
+Status: 401 Unauthorized
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-GitHub-Media-Type: github.v3
+X-GitHub-Request-Id: 76C0644C:192B:926236:534EAE58
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+X-RateLimit-Reset: 1397666787
+X-XSS-Protection: 1; mode=block
+{
+    "documentation_url": "https://developer.github.com/v3",
+    "message": "Bad credentials"
+}
